@@ -3,9 +3,12 @@ import sys
 
 def MultipleGitPuller():
     
-    startingDir = input("Please Provide the path of the directory that you want to git pull.")
+    startingDir = input("Please Provide the path of the directory that you want to git pull: ")
 
-    if(os.path.isdir(startingDir)):
+
+    startingDir = os.path.normpath(startingDir.replace('\\', '/'))
+
+    if(os.path.exists(startingDir)):
         actualdir = startingDir
     else:
         print("Error, please make sure the path is correct and exists.")
